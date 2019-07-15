@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn" style="font-size: 90%;">
+  <head>
+    <!-- Title -->
+    <title>{Channel.Title} - {Stl.SiteName}</title>
+    
+    <stl:include file="@/include/header.html"></stl:include>
+  </head>
+  <body>
+    <main>
+      <!-- Header -->
+      <stl:include file="@/include/nav.html"></stl:include>
+      <!-- End Header -->
+      <section>
+        <section class="g-bg-gray-light-v5 g-py-20" id="js-header-2017">
+          <div class="container-fluid" style="max-width: 90%">
+            <div class="d-sm-flex text-center">
+              <div class="align-self-center">
+                <h2 class="h3 g-font-weight-300 w-100 g-mb-10 g-mb-0--md">联系我们</h2>
+              </div>
+              
+              <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+              
+            </div>
+          </div>
+        </section>
+        <section class="" data-options="{direction: &quot;reverse&quot;, settings_mode_oneelement_max_offset: &quot;150&quot;}">
+          
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-6 g-px-0 g-mb-0--lg">
+                
+                <!--百度地图容器-->  <div style="width:620px;height:550px;border:#ccc solid 1px;" id="dituContent"></div>
+        <!--引用百度地图API-->
+<style type="text/css">
+    html,body{margin:0;padding:0;}
+    .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+    .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+</style>
+
+                
+              </div>
+              <!-- align-self-center -->
+              <div class="col-lg-6 g-pt-0 text-lg-left g-pos-rel g-color-black" style="background: transparent;">
+                <div class="g-px-15 g-py-30">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-fill u-nav-v1-1 u-nav-primary g-mb-20" role="tablist" data-target="nav-1-1-primary-hor-fill" data-tabs-mobile-type="slide-up-down" data-btn-classes="btn btn-md btn-block rounded-0 u-btn-outline-white g-mb-20" style="display: block;">
+                    <stl:contents channelIndex="联系我们">
+                      <stl:if type="ItemIndex" operate="Equals" value="1">
+                        <stl:yes>
+                          <li class="nav-item" style="display: inline-flex;" >
+                            <a class="btn nav-link btn-md u-btn-outline-primary g-mr-10 g-mb-15 active" data-toggle="tab" href="#nav-1-1-primary-hor-fill--{Content.ItemIndex}" data-company={Content.ItemIndex} style="display: inline;" role="tab">{Content.Title}</a>
+                          </li>
+                        </stl:yes>
+                        <stl:no>
+                          <li class="nav-item" style="display: inline-flex;" >
+                            <a class="btn nav-link btn-md u-btn-outline-primary g-mr-10 g-mb-15" data-toggle="tab" href="#nav-1-1-primary-hor-fill--{Content.ItemIndex}" data-company={Content.ItemIndex} style="display: inline;" role="tab">{Content.Title}</a>
+                          </li>
+                        </stl:no>
+                      </stl:if>
+                    </stl:contents>
+                  </ul>
+                  <!-- End Nav tabs -->
+                  
+                  <hr class="g-my-15"/>
+                  
+                  <!-- Tab panes -->
+                  <div id="nav-1-1-primary-hor-fill" class="tab-content">
+                    <stl:contents channelIndex="联系我们">
+                      <stl:if type="ItemIndex" operate="Equals" value="1">
+                        <stl:yes>
+                          <div class="tab-pane fade show active" id="nav-1-1-primary-hor-fill--{Content.ItemIndex}" role="tabpanel">
+                            <h5>{Content.SubTitle}</h5>
+                            <table class="table">
+                              <thead></thead>
+                              <tbody>
+                                <tr>
+                                  <td>电话：<stl:content type="Summary"></stl:content></td>
+                                  
+                                </tr>
+                                <tr>
+                                  <td colspan="2">地址：<stl:content type="Source"></stl:content></td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2" class="text-center"><img src="{Content.ImageUrl}"></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </stl:yes>
+                        <stl:no>
+                          <div class="tab-pane fade show" id="nav-1-1-primary-hor-fill--{Content.ItemIndex}" role="tabpanel">
+                            <h5>{Content.SubTitle}</h5>
+                            <table class="table">
+                              <thead></thead>
+                              <tbody>
+                                <tr>
+                                  <td>电话：<stl:content type="Summary"></stl:content></td>
+                                  
+                                </tr>
+                                <tr>
+                                  <td colspan="2">地址：<stl:content type="Source"></stl:content></td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2" class="text-center"><img src="{Content.ImageUrl}"></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </stl:no>
+                      </stl:if>
+                    </stl:contents>
+                  </div>
+                  <!-- End Tab panes -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+      </section>
+      <stl:include file="@/include/footer.html"></stl:include>
+    </main>
+    <script src="http://api.map.baidu.com/api?v=2.0&amp;ak=hcuy8u1IeVlDgu6WVZZBCCSaPEHH4ZH5"></script>
+    <script>
+      var locationa = new Array();
+      $(document).ready(function(){
+      var height = $(window).height() - $("#js-header").height() - $("#js-header-2017").height();
+      $("#allmap").css("height", height);
+      
+      <stl:contents channelIndex="联系我们">
+        locationa[{Content.ItemIndex-1}] = {
+        point: new BMap.Point({content.x}),
+        opts : {width:200,height:50,title:"{Content.Title}"},
+        infowindow : "地址：{Content.SubTitle}"
+        }
+      </stl:contents>
+      
+    </script>
+  </body>
+  <script type="text/javascript">    //创建和初始化地图函数：
+    function initMap(){
+        createMap();//创建地图
+        setMapEvent();//设置地图事件
+        addMapControl();//向地图添加控件
+        addMarker();//向地图中添加marker
+    }
+    
+    //创建地图函数：
+    function createMap(){
+        var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+        var point = new BMap.Point(115.180418,33.857987);//定义一个中心点坐标
+        map.centerAndZoom(point,15);//设定地图的中心点和坐标并将地图显示在地图容器中
+        window.map = map;//将map变量存储在全局
+    }
+    
+    //地图事件设置函数：
+    function setMapEvent(){
+        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+        map.enableKeyboard();//启用键盘上下左右键移动地图
+    }
+    
+    //地图控件添加函数：
+    function addMapControl(){
+        //向地图中添加缩放控件
+    var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+    map.addControl(ctrl_nav);
+        //向地图中添加缩略图控件
+    var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+    map.addControl(ctrl_ove);
+        //向地图中添加比例尺控件
+    var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+    map.addControl(ctrl_sca);
+    }
+    
+    //标注点数组
+    var markerArr = [{title:"夏庄村",content:"我的备注",point:"115.176501|33.861105",isOpen:0,icon:{w:23,h:25,l:46,t:21,x:9,lb:12}}
+         ];
+    //创建marker
+    function addMarker(){
+        for(var i=0;i<markerArr.length;i++){
+            var json = markerArr[i];
+            var p0 = json.point.split("|")[0];
+            var p1 = json.point.split("|")[1];
+            var point = new BMap.Point(p0,p1);
+            var iconImg = createIcon(json.icon);
+            var marker = new BMap.Marker(point,{icon:iconImg});
+            var iw = createInfoWindow(i);
+            var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x+10,-20)});
+            marker.setLabel(label);
+            map.addOverlay(marker);
+            label.setStyle({
+                        borderColor:"#808080",
+                        color:"#333",
+                        cursor:"pointer"
+            });
+            
+            (function(){
+                var index = i;
+                var _iw = createInfoWindow(i);
+                var _marker = marker;
+                _marker.addEventListener("click",function(){
+                    this.openInfoWindow(_iw);
+                });
+                _iw.addEventListener("open",function(){
+                    _marker.getLabel().hide();
+                })
+                _iw.addEventListener("close",function(){
+                    _marker.getLabel().show();
+                })
+                label.addEventListener("click",function(){
+                    _marker.openInfoWindow(_iw);
+                })
+                if(!!json.isOpen){
+                    label.hide();
+                    _marker.openInfoWindow(_iw);
+                }
+            })()
+        }
+    }
+    //创建InfoWindow
+    function createInfoWindow(i){
+        var json = markerArr[i];
+        var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
+        return iw;
+    }
+    //创建一个Icon
+    function createIcon(json){
+        var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
+        return icon;
+    }
+    
+    initMap();//创建和初始化地图
+</script>
+</html>
